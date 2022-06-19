@@ -2,7 +2,53 @@
 
 This project, joshkautz.com, is a static site to serve as a personal portfolio and branding website. It's simply a collection of links to social media platforms to increase hireability.
 
-# Deploy
+# Deployment (New)
+
+This is used now that I am hosting via Firebase Hosting.
+
+## Manual - [Firebase CLI](https://firebase.google.com/docs/cli)
+
+### Deploy to Firebase Hosting Preview Channel
+
+Windows
+```PowerShell
+npm run build
+$Date = Get-Date -Format "dddd-MM-dd-yyyy-HH-mm-ss"
+$Channel = "Preview-" + $Date
+firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-de070 --json
+```
+
+Linux
+```Bash
+npm run build
+Date=$(date +'%A-%m-%d-%Y-%H-%M-%S')
+Channel="Preview-"$Date
+firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-de070 --json
+```
+
+### Deploy to Firebase Hosting Live Channel
+Windows
+```PowerShell
+npm run build
+firebase deploy --only hosting --project living-pokedex-de070 --json
+```
+
+Linux
+```Bash
+npm run build
+firebase deploy --only hosting --project living-pokedex-de070 --json
+```
+
+## Automatic - [Firebase Hosting GitHub Action](https://github.com/marketplace/actions/deploy-to-firebase-hosting)
+
+1. Create a Pull Request to merge new feature branch into the Main branch.
+2. Firebase Hosting GitHub Action will build and deploy the new changes to a Preview Channel on Firebase Hosting.
+3. After testing the features at the Preview Channel URL, merge the Pull Request into the Main branch.
+4. Firebase Hosting GitHub Action will build and deploy the new changes to the Live Channel on Firebase Hosting.
+
+# Deployment (Old)
+
+This was used when I was hosting on AWS S3 and serving via AWS CloudFront.
 
 ## Windows
 
