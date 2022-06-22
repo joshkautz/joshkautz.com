@@ -12,31 +12,27 @@ This is used now that I am hosting via Firebase Hosting.
 
 Windows
 ```PowerShell
-npm run build
 $Date = Get-Date -Format "dddd-MM-dd-yyyy-HH-mm-ss"
 $Channel = "Preview-" + $Date
-firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-de070 --json
+firebase hosting:channel:deploy $Channel --expires 1d --project josh-kautz --json
 ```
 
 Linux
 ```Bash
-npm run build
 Date=$(date +'%A-%m-%d-%Y-%H-%M-%S')
 Channel="Preview-"$Date
-firebase hosting:channel:deploy $Channel --expires 7d --project living-pokedex-de070 --json
+firebase hosting:channel:deploy $Channel --expires 1d --project josh-kautz --json
 ```
 
 ### Deploy to Firebase Hosting Live Channel
 Windows
 ```PowerShell
-npm run build
-firebase deploy --only hosting --project living-pokedex-de070 --json
+firebase deploy --only hosting --project josh-kautz --json
 ```
 
 Linux
 ```Bash
-npm run build
-firebase deploy --only hosting --project living-pokedex-de070 --json
+firebase deploy --only hosting --project josh-kautz --json
 ```
 
 ## Automatic - [Firebase Hosting GitHub Action](https://github.com/marketplace/actions/deploy-to-firebase-hosting)
